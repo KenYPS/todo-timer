@@ -24,6 +24,22 @@
       <div class="count">
         <div class="circle">
           <svg
+            width="65.2"
+            height="65.2"
+            viewBox="0 0 100 100"
+          >
+            <circle
+              class="circle_bar"
+              r="30"
+              cy="50"
+              cx="50"
+              stroke-width="5"
+              stroke="orange"
+              fill="none"
+            />
+          </svg>
+
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"
             height="60"
@@ -34,9 +50,8 @@
             <path d="M0 0h24v24H0z" fill="none" />
           </svg>
         </div>
-        
       </div>
-      <div class="progress"></div>
+      <!-- <div class="progress"></div> -->
     </div>
     <div class="right">
       <ul class="nav">
@@ -204,7 +219,6 @@ $pink: #ff4384;
       align-items: center;
       justify-content: center;
 
-      z-index: 9;
       // background-image: radial-gradient(
       //   circle,
       //   $pink 260px,
@@ -218,9 +232,13 @@ $pink: #ff4384;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 9;
+        #svg circle {
+          stroke-dashoffset: 50;
+          transition: stroke-dashoffset 1s linear;
+          stroke: #666;
+          stroke-width: 1em;
+        }
       }
-      
     }
     // .progress {
     //   position: absolute;
@@ -258,6 +276,11 @@ $pink: #ff4384;
       }
     }
   }
+}
+
+.circle_bar {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
 }
 
 .pop-enter-active {
